@@ -12,6 +12,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ProjectTemplate.Persistance;
+using ProjectTemplate.Application.Identity;
+using ProjectTemplate.Web.AppServices;
+using ProjectTemplate.Web.Helpers.Providers;
 
 namespace ProjectTemplate.Web
 {
@@ -39,9 +42,21 @@ namespace ProjectTemplate.Web
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddUserManager<ProjectTemplateUserManager>()
+                .AddSignInManager<ProjectTemplateSignInManager>()
+                .AddDefaultTokenProviders()
+                .AddErrorDescriber<ProjectTemplateIdentityErrorDescriber>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            // Add application services.
+            services.AddTransient<IEmailSender, EmailSender>();
+            services.AddScoped<IViewRenderService, ViewRenderService>();
+            services.AddCloudscribePagination();
+
+            services.AddMvc(config => 
+                config.ModelBinderProviders.Insert(0, new DateTimeProvider())
+            ).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

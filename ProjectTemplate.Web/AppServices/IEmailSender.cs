@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace ProjectTemplate.Web.AppServices
 {
-    interface IEmailSender
+    public interface IEmailSender
     {
+        Task SendEmailAsync(string email, string subject, string message);
     }
 }
