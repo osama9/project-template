@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="AnUnknownFailureHasOccurred" xml:space="preserve">
+    <value>حدث خطأ ما</value>
+  </data>
+  <data name="AUserWithThisLoginAlreadyExists" xml:space="preserve">
+    <value>اسم تسجيل الدخول مُستجل مُسبقاً</value>
+  </data>
+  <data name="EmptyData" xml:space="preserve">
+    <value>لايوجد بيانات</value>
+  </data>
+  <data name="IncorrectPassword" xml:space="preserve">
+    <value>كلمة المرور غير صحيحة</value>
+  </data>
+  <data name="InvalidToken" xml:space="preserve">
+    <value>الرمز غير صحيح</value>
+  </data>
+  <data name="IsAlreadyTaken" xml:space="preserve">
+    <value>مُسجل مُسبقاً</value>
+  </data>
+  <data name="IsAlreadyTakenForFeminine" xml:space="preserve">
+    <value>مٌسجلة مُسبقاً</value>
+  </data>
+  <data name="IsInvalid" xml:space="preserve">
+    <value>غير صحيح</value>
+  </data>
+  <data name="IsInvalidForFeminine" xml:space="preserve">
+    <value>غير صحيحة</value>
+  </data>
+  <data name="LockoutIsNotEnabledForThisUser" xml:space="preserve">
+    <value>خاصية قفل الحساب عند تخمين كلمة المرور غير مفعلة لهذا المستخدم</value>
+  </data>
+  <data name="OperationFailed" xml:space="preserve">
+    <value>تعذر اتمام العملية</value>
+  </data>
+  <data name="OperationSuccess" xml:space="preserve">
+    <value>تمت العملية بنجاح</value>
+  </data>
+  <data name="PasswordMustBeAtLeast" xml:space="preserve">
+    <value>يجب أن تتكون كلمة المرور على الأقل من</value>
+  </data>
+  <data name="PasswordsMustHaveAtLeastOneDigit" xml:space="preserve">
+    <value>كلمة المرور يجب أن تحتوي على رقم واحد على الأقل</value>
+  </data>
+  <data name="PasswordsMustHaveAtLeastOneLowercase" xml:space="preserve">
+    <value>كلمة المرور يجب أن تحتوي على حرف صغير على الأقل ('a'-'z')</value>
+  </data>
+  <data name="PasswordsMustHaveAtLeastOneNonAlphanumericCharacter" xml:space="preserve">
+    <value>كلمة المرور يجب أن تحتوي على رمز واحد على الأقل</value>
+  </data>
+  <data name="PasswordsMustHaveAtLeastOneUppercase" xml:space="preserve">
+    <value>كلمة المرور يجب أن تحتوي على حرف كبير على الأقل ('A'-'Z')</value>
+  </data>
+  <data name="PleaseFixTheFollowingErrors" xml:space="preserve">
+    <value>الرجاء اصلاح الاخطاء التالية</value>
+  </data>
+  <data name="PleaseWritePassword" xml:space="preserve">
+    <value>الرجاء كتابة كلمة المرور</value>
+  </data>
+  <data name="UserAlreadyHasAPasswordSet" xml:space="preserve">
+    <value>المستخدم لدية كلمة مرور</value>
+  </data>
+  <data name="UserAlreadyInRole" xml:space="preserve">
+    <value>المستخدم لديه صلاحية ({0}) مُسبقاً</value>
+  </data>
+  <data name="UserIsNotInRole" xml:space="preserve">
+    <value>المستخدم ليس لدية صلاحية ({0})</value>
+  </data>
+  <data name="UserNameIsInvalid" xml:space="preserve">
+    <value>غير صحيح، ويجب أن يحتوي على حروف إنجليزية و أرقام فقط</value>
+  </data>
+  <data name="EmailIsAlreadyTaken" xml:space="preserve">
+    <value>البريد الإلكتروني ({0}) مُسجل مُسبقاً</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>البريد الإلكتروني ({0}) غير صحيح</value>
+  </data>
+  <data name="InvalidRole" xml:space="preserve">
+    <value>الصلاحية ({0}) غير صحيحة</value>
+  </data>
+  <data name="InvlaidUserName" xml:space="preserve">
+    <value>اسم المتسخدم ({0}) غير صحيح، ويجب أن يحتوي على حروف إنجليزية و أرقام فقط</value>
+  </data>
+  <data name="PasswordMustUseAtLeastDifferenctCharacters" xml:space="preserve">
+    <value>كلمة المرور يجب ان تحتوي على ({0}) أحرف مختلفة على الأقل</value>
+  </data>
+  <data name="PasswordTooShort" xml:space="preserve">
+    <value>يجب أن تتكون كلمة المرور على الأقل من ({0}) أحرف/حرف</value>
+  </data>
+  <data name="RoleIsAlreadyTaken" xml:space="preserve">
+    <value>الصلاحية ({0}) مُسجلة مُسبقاً</value>
+  </data>
+  <data name="UserNameIsAlreadyTaken" xml:space="preserve">
+    <value>اسم المستخدم ({0}) مُسجل مُسبقاً</value>
+  </data>
+  <data name="YouCannotDeleteTheItemBecauseItIsLinkedWithOtherItems" xml:space="preserve">
+    <value>لا يمكنك حذف هذا العنصر لارتباطه ارتباط كلي بعناصر اخرى. الرجاء حذف العناصر المرتبطه أولاً ثم إعادة المحاولة</value>
+    <comment>SQL547</comment>
+  </data>
+</root>

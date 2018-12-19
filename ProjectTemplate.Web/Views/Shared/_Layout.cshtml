@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ProjectTemplate.Web</title>
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="~/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.0.0/css/bootstrap.min.css" integrity="sha384-P4uhUIGk/q1gaD/NdgkBIl3a6QywJjlsFJFk7SPRdruoGddvRVSwv5qFnvZ73cpz"
+          crossorigin="anonymous">
+    @*<link href="~/assets/global/plugins/bootstrap-switch/css/bootstrap-switch-rtl.min.css" rel="stylesheet" type="text/css" />
+        <!-- END GLOBAL MANDATORY STYLES -->
+
+        <link href="~/assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" />
+        <link href="~/assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" />
+        <!-- BEGIN THEME GLOBAL STYLES -->
+        <link href="~/assets/global/css/components-rtl.min.css" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="~/assets/global/css/plugins-rtl.min.css" rel="stylesheet" type="text/css" />
+        <!-- END THEME GLOBAL STYLES -->
+        <!-- BEGIN THEME LAYOUT STYLES -->
+        <link href="~/assets/layouts/layout/css/layout-rtl.min.css" rel="stylesheet" type="text/css" />
+        <link href="~/assets/layouts/layout/css/themes/darkblue-rtl.min.css" rel="stylesheet" type="text/css" id="style_color" />
+        <link href="~/assets/layouts/layout/css/custom-rtl.min.css" rel="stylesheet" type="text/css" />
+
+        <link href="~/assets/global/plugins/bootstrap-toastr/toastr.min.css" rel="stylesheet" />
+        <link href="~/assets/global/plugins/bootstrap-toastr/toastr-rtl.min.css" rel="stylesheet" />
+        <link href="~/assets/global/plugins/icheck/skins/all.css" rel="stylesheet" />
+
+        <link href="~/lib/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet" />*@
+
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/app.css" />
+    <!-- BEGIN THEME LAYOUT STYLES -->
+    @RenderSection("styles", false)
+    <link rel="shortcut icon" href="~/assets/logo.png" />
+</head>
+<body>
+    <partial name="_Header" />
+    <div class="container">
+        <partial name="_CookieConsentPartial" />
+        @*<partial name="_SideBarMenu" />*@
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2018 - ProjectTemplate.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha256-E/V4cWE4qvAeO5MOhjtGtqDzPndRO1LBk8lJ/PR7CA4=">
+        </script>
+    </environment>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Osama Al Ansari",
+    "classifications": [ "Common", "Web" ],
+    "identity": "ProjectTemplate",
+    "name": "Web template with vuejs",
+    "shortName": "oalansari",
+    "sourceName": "ProjectTemplate"
+
+  }

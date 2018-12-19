@@ -1,0 +1,31 @@
+﻿// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+//@import '../../node_modules/mapbox-gl/dist/mapbox-gl.css';
+// Bootstrap
+//@import '~bootstrap/scss/bootstrap';
+
+// Dropzone
+@import '~dropzone/dist/min/dropzone.min.css';
+
+//Select2
+@import '~select2/dist/css/select2.min.css' ;
+
+//Typeahead
+@import '~typeahead/style.css';
+.dropzone {
+    margin-bottom: 20px;
+    min-height: auto;
+
+}
+
+body {
+    font-family: 'Cairo', sans-serif !important;
+}
+
+.navbar-laravel {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
