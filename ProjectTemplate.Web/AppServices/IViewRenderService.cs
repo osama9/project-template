@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectTemplate.Web.AppServices
 {
-    interface IViewRenderService
+    public interface IViewRenderService
     {
         Task<string> RenderToStringAsync(string viewName, object model, ViewDataDictionary viewData = null);
     }

@@ -11,7 +11,7 @@
                     errorMessage: true,
                     show: function () {
                         $(this).slideDown();
-
+                        
                         refreshUnobtrusiveValidation(currentForm);
                     },
 

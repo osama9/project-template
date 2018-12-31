@@ -11,31 +11,34 @@ namespace ProjectTemplate.Web.Helpers
     {
         public static string EmailConfirmationLink(this IUrlHelper urlHelper, string userId, string code, string scheme)
         {
-            return urlHelper.Action(
-                action: nameof(ConfirmEmailModel.OnGetAsync),
-                controller: "Account",
-                values: new { userId, code },
-                protocol: scheme);
+
+            return "";
+//            return urlHelper.Action(
+//                action: nameof(ConfirmEmailModel.OnGetAsync),
+//                controller: "Account",
+//                values: new { userId, code },
+//                protocol: scheme);
         }
 
         public static string ResetPasswordCallbackLink(this IUrlHelper urlHelper, string userId, string code, string scheme)
         {
-            return urlHelper.Action(
-                action: nameof(ResetPasswordModel.OnGet), //TODO :Check these methods
-                controller: "Account",
-                values: new { userId, code },
-                protocol: scheme);
+            return "";
+//            return urlHelper.Action(
+//                action: nameof(ResetPasswordModel.OnGet), //TODO :Check these methods
+//                controller: "Account",
+//                values: new { userId, code },
+//                protocol: scheme);
         }
 
         public static string ActionWithoutRouteValues(this IUrlHelper helper, string action, string[] removeRouteValues = null)
         {
             var routeValues = helper.ActionContext.RouteData.Values;
-            var routeValueKeys = routeValues.Keys.Where(o => o != "controller" && o != "action").ToList();
+            var routeValueKeys = routeValues.Where(o => o.Key != "controller" && o.Key != "action").ToList();
 
             // Temporarily remove route values
             var oldRouteValues = new Dictionary<string, object>();
 
-            foreach (var key in routeValueKeys)
+            foreach (var key in routeValueKeys.Select(r => r.Key))
             {
                 if (removeRouteValues != null && !removeRouteValues.Contains(key))
                 {

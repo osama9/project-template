@@ -11,6 +11,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using ProjectTemplate.Web.TagHelpers.Breadcrumb;
 
 namespace ProjectTemplate.Web.TagHelpers.Breadcrumb
 {
@@ -20,6 +22,9 @@ namespace ProjectTemplate.Web.TagHelpers.Breadcrumb
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
     public class BreadCrumbAttribute : ActionFilterAttribute
     {
+        
+        private LinkGenerator _linkGenerator;
+
         /// <summary>
         /// Use this property to remove all of the previous items of the current stack
         /// </summary>
@@ -75,12 +80,17 @@ namespace ProjectTemplate.Web.TagHelpers.Breadcrumb
         /// </summary>
         public bool IgnoreAjaxRequests { get; set; } = true;
 
+
+
+        
+        
         /// <summary>
         /// Adds the current item to the stack
         /// </summary>
         /// <param name="filterContext"></param>
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
+            _linkGenerator = filterContext.HttpContext.RequestServices.GetService<LinkGenerator>();
             if (IgnoreAjaxRequests && isAjaxRequest(filterContext))
             {
                 return;
@@ -125,13 +135,13 @@ namespace ProjectTemplate.Web.TagHelpers.Breadcrumb
 
         private string getDefaultControllerActionUrl(ActionExecutingContext filterContext)
         {
-            var defaultRoute = filterContext.RouteData.Routers.OfType<Route>().FirstOrDefault();
+            var defaultRoute = filterContext.RouteData;
             if (defaultRoute == null)
             {
                 throw new InvalidOperationException("The default route of this controller not found.");
             }
 
-            var defaultAction = defaultRoute.Defaults["action"] as string;
+            var defaultAction = defaultRoute.Values["action"] as string;
             if (defaultAction == null)
             {
                 throw new InvalidOperationException("The default action of this controller not found.");
@@ -144,7 +154,8 @@ namespace ProjectTemplate.Web.TagHelpers.Breadcrumb
 
             if (RemoveRouteValues == null || !RemoveRouteValues.Any())
             {
-                return new UrlHelper(filterContext).Action(defaultAction);
+                return _linkGenerator.GetPathByAction(httpContext: filterContext.HttpContext, action: defaultAction);
+                
             }
 
             return new UrlHelper(filterContext).ActionWithoutRouteValues(defaultAction, RemoveRouteValues);

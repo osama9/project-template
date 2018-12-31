@@ -17,11 +17,11 @@ toastr.options = {
     "hideMethod": "fadeOut"
 }
 
-function showAlert(alert, alertDiv) {
-
+function showAlert(alert,alertDiv) {
+    
     if (!alert)
         return;
-
+    
     if (alert.isAutoHide) {
 
         switch (alert.alertType) {
@@ -120,7 +120,7 @@ function setAlert(options) {
 
     var id = getUniqueID("App_alert");
 
-    var html = '<div id="' + id + '" class="custom-alerts alert alert-' + options.type + ' fade in">' + (options.close ? '<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>' : '') + (options.icon !== "" ? '<i class="fa-lg fa fa-' + options.icon + '"></i>  ' : '') + options.message + '</div>';
+    var html = '<div id="' + id + '" class="custom-alerts alert alert-' + options.type + ' fade show">' + (options.close ? '<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>' : '') + (options.icon !== "" ? '<i class="fa-lg fa fa-' + options.icon + '"></i>  ' : '') + options.message + '</div>';
 
     if (options.reset) {
         $('.custom-alerts').remove();

@@ -1,95 +1,95 @@
-﻿<!-- BEGIN SIDEBAR MENU -->
-<!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
-<!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
-<!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
-<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-<!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
-<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-<ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
-    <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
-    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-    <li class="sidebar-toggler-wrapper hide">
-        <div class="sidebar-toggler">
-            <span></span>
-        </div>
-    </li>
-    <!-- END SIDEBAR TOGGLER BUTTON -->
-    <li class="nav-item start ">
-        <a asp-action="Index" asp-controller="Home" asp-area="" class="nav-link">
-            <i class="fa fa-home"></i>
-            <span class="title">
-                @CommonText.Home
-            </span>
-            <span class="arrow"></span>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a asp-action="Index" asp-controller="Land" asp-area="" class="nav-link">
-            <i class="icon-briefcase"></i>
-            <span class="title">
-                @CommonText.Lands
-            </span>
-            <span class="arrow"></span>
-        </a>
-    </li>
-    @*<li class="nav-item">
-            <a asp-action="Index" asp-controller="Product" asp-area="" class="nav-link">
-                <i class="icon-briefcase"></i>
-                <span class="title">
-                    @CommonText.Products
-                </span>
-                <span class="arrow"></span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a asp-action="Index" asp-controller="Category" asp-area="" class="nav-link">
-                <i class="icon-list"></i>
-                <span class="title">
-                    @CommonText.Categories
-                </span>
-                <span class="arrow"></span>
-            </a>
-        </li>*@
-    <li class="heading">
-        <h3 class="uppercase">
-            @CommonText.Settings
-        </h3>
-    </li>
-    <li class="nav-item">
-        <a asp-action="Index" asp-controller="Region" asp-area="" class="nav-link">
-            <i class="icon-globe"></i>
-            <span class="title">
-                @CommonText.Regions
-            </span>
-            <span class="arrow"></span>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a asp-action="Index" asp-controller="City" asp-area="" class="nav-link">
-            <i class="icon-home"></i>
-            <span class="title">
-                @CommonText.Cities
-            </span>
-            <span class="arrow"></span>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a asp-action="Index" asp-controller="Sector" asp-area="" class="nav-link">
-            <i class="socicon-lanyrd"></i>
-            <span class="title">
-                @CommonText.Sectors
-            </span>
-            <span class="arrow"></span>
-        </a>
-    </li>
-    @*<li class="nav-item">
-            <a asp-action="Index" asp-controller="User" asp-area="" class="nav-link">
-                <i class="icon-users"></i>
-                <span class="title">
-                    @CommonText.Users
-                </span>
-                <span class="arrow"></span>
-            </a>
-        </li>*@
-</ul>
-<!-- END SIDEBAR MENU -->
+﻿@* <!-- BEGIN SIDEBAR MENU --> *@
+@* <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) --> *@
+@* <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode --> *@
+@* <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode --> *@
+@* <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing --> *@
+@* <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded --> *@
+@* <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed --> *@
+@* <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px"> *@
+@*     <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element --> *@
+@*     <!-- BEGIN SIDEBAR TOGGLER BUTTON --> *@
+@*     <li class="sidebar-toggler-wrapper hide"> *@
+@*         <div class="sidebar-toggler"> *@
+@*             <span></span> *@
+@*         </div> *@
+@*     </li> *@
+@*     <!-- END SIDEBAR TOGGLER BUTTON --> *@
+@*     <li class="nav-item start "> *@
+@*         <a asp-action="Index" asp-controller="Home" asp-area="" class="nav-link"> *@
+@*             <i class="fa fa-home"></i> *@
+@*             <span class="title"> *@
+@*                 @CommonText.Home *@
+@*             </span> *@
+@*             <span class="arrow"></span> *@
+@*         </a> *@
+@*     </li> *@
+@*     <li class="nav-item"> *@
+@*         <a asp-action="Index" asp-controller="Land" asp-area="" class="nav-link"> *@
+@*             <i class="icon-briefcase"></i> *@
+@*             <span class="title"> *@
+@*                 @CommonText.Lands *@
+@*             </span> *@
+@*             <span class="arrow"></span> *@
+@*         </a> *@
+@*     </li> *@
+@*     <li class="nav-item"> *@
+@*             <a asp-action="Index" asp-controller="Product" asp-area="" class="nav-link"> *@
+@*                 <i class="icon-briefcase"></i> *@
+@*                 <span class="title"> *@
+@*                     @CommonText.Products *@
+@*                 </span> *@
+@*                 <span class="arrow"></span> *@
+@*             </a> *@
+@*         </li> *@
+@*         <li class="nav-item"> *@
+@*             <a asp-action="Index" asp-controller="Category" asp-area="" class="nav-link"> *@
+@*                 <i class="icon-list"></i> *@
+@*                 <span class="title"> *@
+@*                     @CommonText.Categories *@
+@*                 </span> *@
+@*                 <span class="arrow"></span> *@
+@*             </a> *@
+@*         </li> *@
+@*     <li class="heading"> *@
+@*         <h3 class="uppercase"> *@
+@*             @CommonText.Settings *@
+@*         </h3> *@
+@*     </li> *@
+@*     <li class="nav-item"> *@
+@*         <a asp-action="Index" asp-controller="Region" asp-area="" class="nav-link"> *@
+@*             <i class="icon-globe"></i> *@
+@*             <span class="title"> *@
+@*                 @CommonText.Regions *@
+@*             </span> *@
+@*             <span class="arrow"></span> *@
+@*         </a> *@
+@*     </li> *@
+@*     <li class="nav-item"> *@
+@*         <a asp-action="Index" asp-controller="City" asp-area="" class="nav-link"> *@
+@*             <i class="icon-home"></i> *@
+@*             <span class="title"> *@
+@*                 @CommonText.Cities *@
+@*             </span> *@
+@*             <span class="arrow"></span> *@
+@*         </a> *@
+@*     </li> *@
+@*     <li class="nav-item"> *@
+@*         <a asp-action="Index" asp-controller="Sector" asp-area="" class="nav-link"> *@
+@*             <i class="socicon-lanyrd"></i> *@
+@*             <span class="title"> *@
+@*                 @CommonText.Sectors *@
+@*             </span> *@
+@*             <span class="arrow"></span> *@
+@*         </a> *@
+@*     </li> *@
+@*     <li class="nav-item"> *@
+@*             <a asp-action="Index" asp-controller="User" asp-area="" class="nav-link"> *@
+@*                 <i class="icon-users"></i> *@
+@*                 <span class="title"> *@
+@*                     @CommonText.Users *@
+@*                 </span> *@
+@*                 <span class="arrow"></span> *@
+@*             </a> *@
+@*         </li> *@
+@* </ul> *@
+@* <!-- END SIDEBAR MENU --> *@

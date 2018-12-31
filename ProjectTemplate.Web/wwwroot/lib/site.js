@@ -96,13 +96,13 @@ function onAjaxFailed(xhr, status, error, alertDiv, formId) {
 }
 
 function onAjaxSuccess(xhr, status, modalToHide) {
+    console.log(modalToHide);
     if (modalToHide) {
         $(modalToHide).modal('hide');
     }
 }
 
 function onAjaxComplete(xhr, status, blockDiv, alertDiv, divToReplace, formId) {
-
     var data = xhr.responseJSON;
 
     if (!data) {
