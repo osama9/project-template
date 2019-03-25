@@ -23,9 +23,9 @@ namespace ProjectTemplate.Persistance.Repositories
 
         public virtual List<TEntity> Create<TEntity>(List<TEntity> entites) where TEntity : class
         {
-            ApplicationDbContext context = _context ?? new ApplicationDbContext();
-            
-            var dbSet = context.Set<TEntity>();
+
+
+            var dbSet = _context.Set<TEntity>();
 
             foreach (var entity in entites)
             {
@@ -35,20 +35,19 @@ namespace ProjectTemplate.Persistance.Repositories
                 dbSet.Add(entity);
             }
 
-            if (_context == null)
-            {
-                context.SaveChanges();
-                context.Dispose();
-            }
+
+            _context.SaveChanges();
+
+
 
             return entites;
         }
 
         public virtual TEntity Create<TEntity>(TEntity entity) where TEntity : class
         {
-            ApplicationDbContext context = _context ?? new ApplicationDbContext();
 
-            var dbSet = context.Set<TEntity>();
+
+            var dbSet = _context.Set<TEntity>();
 
             if (entity is AuditableEntity)
                 (entity as AuditableEntity).InsertAudit();
@@ -56,20 +55,18 @@ namespace ProjectTemplate.Persistance.Repositories
 
             dbSet.Add(entity);
 
-            if (_context == null)
-            {
-                context.SaveChanges();
-                context.Dispose();
-            }
+            _context.SaveChanges();
+
+
 
             return entity;
         }
 
         public async virtual Task<List<TEntity>> CreateAsync<TEntity>(List<TEntity> entites) where TEntity : class
         {
-            ApplicationDbContext context = _context ?? new ApplicationDbContext();
 
-            var dbSet = context.Set<TEntity>();
+
+            var dbSet = _context.Set<TEntity>();
 
             foreach (var entity in entites)
             {
@@ -79,20 +76,18 @@ namespace ProjectTemplate.Persistance.Repositories
 
             await dbSet.AddRangeAsync(entites);
 
-            if (_context == null)
-            {
-                await context.SaveChangesAsync();
-                context.Dispose();
-            }
+            await _context.SaveChangesAsync();
+
+
 
             return entites;
         }
 
         public async virtual Task<TEntity> CreateAsync<TEntity>(TEntity entity) where TEntity : class
         {
-            ApplicationDbContext context = _context ?? new ApplicationDbContext();
 
-            var dbSet = context.Set<TEntity>();
+
+            var dbSet = _context.Set<TEntity>();
 
             if (entity is AuditableEntity)
                 (entity as AuditableEntity).InsertAudit();
@@ -100,137 +95,121 @@ namespace ProjectTemplate.Persistance.Repositories
 
             await dbSet.AddAsync(entity);
 
-            if (_context == null)
-            {
-                await context.SaveChangesAsync();
-                context.Dispose();
-            }
+            await _context.SaveChangesAsync();
+
+
 
             return entity;
         }
-        
+
         public virtual TEntity Update<TEntity>(TEntity entityToUpdate) where TEntity : class
         {
-            ApplicationDbContext context = _context ?? new ApplicationDbContext();
 
-            var dbSet = context.Set<TEntity>();
 
-            if (context.Entry(entityToUpdate).State == EntityState.Detached)
+            var dbSet = _context.Set<TEntity>();
+
+            if (_context.Entry(entityToUpdate).State == EntityState.Detached)
                 dbSet.Attach(entityToUpdate);
 
-            context.Entry(entityToUpdate).State = EntityState.Modified;
+            _context.Entry(entityToUpdate).State = EntityState.Modified;
 
             if (entityToUpdate is AuditableEntity)
                 (entityToUpdate as AuditableEntity).UpdateAudit();
 
-            if (_context == null)
-            {
-                context.SaveChanges();
-                context.Dispose();
-            }
+            _context.SaveChanges();
+
+
 
             return entityToUpdate;
         }
 
         public async virtual Task<TEntity> UpdateAsync<TEntity>(TEntity entityToUpdate) where TEntity : class
         {
-            ApplicationDbContext context = _context ?? new ApplicationDbContext();
 
-            var dbSet = context.Set<TEntity>();
 
-            if (context.Entry(entityToUpdate).State == EntityState.Detached)
+            var dbSet = _context.Set<TEntity>();
+
+            if (_context.Entry(entityToUpdate).State == EntityState.Detached)
                 dbSet.Attach(entityToUpdate);
 
-            context.Entry(entityToUpdate).State = EntityState.Modified;
+            _context.Entry(entityToUpdate).State = EntityState.Modified;
 
             if (entityToUpdate is AuditableEntity)
                 (entityToUpdate as AuditableEntity).UpdateAudit();
 
-            if (_context == null)
-            {
-                await context.SaveChangesAsync();
-                context.Dispose();
-            }
+            await _context.SaveChangesAsync();
+
 
             return entityToUpdate;
         }
 
         public virtual void Delete<TEntity>(TEntity entityToDelete) where TEntity : class
         {
-            ApplicationDbContext context = _context ?? new ApplicationDbContext();
 
 
-            var dbSet = context.Set<TEntity>();
 
-            if (context.Entry(entityToDelete).State == EntityState.Detached)
+            var dbSet = _context.Set<TEntity>();
+
+            if (_context.Entry(entityToDelete).State == EntityState.Detached)
             {
                 dbSet.Attach(entityToDelete);
             }
 
             dbSet.Remove(entityToDelete);
 
-            if (_context == null)
-            {
-                context.SaveChanges();
-                context.Dispose();
-            }
+            _context.SaveChanges();
+
+
         }
 
         public virtual void Delete<TEntity>(object id) where TEntity : class
         {
-            ApplicationDbContext context = _context ?? new ApplicationDbContext();
 
-            var dbSet = context.Set<TEntity>();
+
+            var dbSet = _context.Set<TEntity>();
 
             var found = dbSet.Find(id);
 
             dbSet.Remove(found);
 
-            if (_context == null)
-            {
-                context.SaveChanges();
-                context.Dispose();
-            }
+            _context.SaveChanges();
+
+
         }
 
         public async virtual Task DeleteAsync<TEntity>(object id) where TEntity : class
         {
-            ApplicationDbContext context = _context ?? new ApplicationDbContext();
 
-            var dbSet = context.Set<TEntity>();
+
+            var dbSet = _context.Set<TEntity>();
 
             var found = await dbSet.FindAsync(id);
 
             dbSet.Remove(found);
 
-            if (_context == null)
-            {
-                await context.SaveChangesAsync();
-                context.Dispose();
-            }
+            await _context.SaveChangesAsync();
+
+
         }
 
         public async virtual Task<int> CountAsync<TEntity>() where TEntity : BaseEntity
         {
-            ApplicationDbContext context = _context ?? new ApplicationDbContext();
 
-            var dbSet = context.Set<TEntity>();
+
+            var dbSet = _context.Set<TEntity>();
 
             int count;
 
             count = await dbSet.CountAsync();
-
-            if (_context == null)
-                context.Dispose();
 
             return count;
         }
 
         public async virtual Task<int> CountAsync<TEntity>(SearchCriteria<TEntity> search) where TEntity : class
         {
-            ApplicationDbContext context = _context ?? new ApplicationDbContext();
 
-            var dbSet = context.Set<TEntity>();
+
+            var dbSet = _context.Set<TEntity>();
 
             IQueryable<TEntity> query = dbSet;
 
@@ -243,33 +222,27 @@ namespace ProjectTemplate.Persistance.Repositories
 
             count = await query.CountAsync();
 
-            if (_context == null)
-                context.Dispose();
-
             return count;
         }
 
         public virtual int Count<TEntity>() where TEntity : BaseEntity
         {
-            ApplicationDbContext context = _context ?? new ApplicationDbContext();
 
-            var dbSet = context.Set<TEntity>();
+
+            var dbSet = _context.Set<TEntity>();
 
             int count;
 
             count = dbSet.Count();
-
-            if (_context == null)
-                context.Dispose();
 
             return count;
         }
 
         public virtual int Count<TEntity>(SearchCriteria<TEntity> search) where TEntity : class
         {
-            ApplicationDbContext context = _context ?? new ApplicationDbContext();
 
-            var dbSet = context.Set<TEntity>();
+
+            var dbSet = _context.Set<TEntity>();
 
             IQueryable<TEntity> query = dbSet;
 
@@ -282,9 +255,6 @@ namespace ProjectTemplate.Persistance.Repositories
 
             count = query.Count();
 
-            if (_context == null)
-                context.Dispose();
-
             return count;
         }
 
@@ -292,9 +262,9 @@ namespace ProjectTemplate.Persistance.Repositories
         {
 
 
-            ApplicationDbContext context = _context ?? new ApplicationDbContext();
 
-            var dbSet = context.Set<TEntity>();
+
+            var dbSet = _context.Set<TEntity>();
 
             IQueryable<TEntity> query = dbSet;
 
@@ -328,19 +298,15 @@ namespace ProjectTemplate.Persistance.Repositories
             result.Result = query.ToList();
 
 
-            if (_context == null)
-                context.Dispose();
-
-
             return result;
 
         }
 
         public async virtual Task<SearchResult<TEntity>> SearchAsync<TEntity>(SearchCriteria<TEntity> searchCriteria, params string[] includes) where TEntity : class
         {
-            ApplicationDbContext context = _context ?? new ApplicationDbContext();
 
-            var dbSet = context.Set<TEntity>();
+
+            var dbSet = _context.Set<TEntity>();
 
             IQueryable<TEntity> query = dbSet;
 
@@ -369,19 +335,15 @@ namespace ProjectTemplate.Persistance.Repositories
             result.Result = await query.ToListAsync();
 
 
-            if (_context == null)
-                context.Dispose();
-
-
             return result;
 
         }
 
         public virtual TEntity GetByID<TEntity>(params object[] keys) where TEntity : BaseEntity
         {
-            ApplicationDbContext context = _context ?? new ApplicationDbContext();
 
-            TEntity entity = context.Set<TEntity>().Find(keys);
+
+            TEntity entity = _context.Set<TEntity>().Find(keys);
 
             return entity;
 
@@ -389,9 +351,9 @@ namespace ProjectTemplate.Persistance.Repositories
 
         public async virtual Task<TEntity> GetByIDAsync<TEntity>(params object[] keys) where TEntity : BaseEntity
         {
-            ApplicationDbContext context = _context ?? new ApplicationDbContext();
 
-            TEntity entity = await context.Set<TEntity>().FindAsync(keys);
+
+            TEntity entity = await _context.Set<TEntity>().FindAsync(keys);
 
             return entity;
 
@@ -402,9 +364,9 @@ namespace ProjectTemplate.Persistance.Repositories
          Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
          string[] includeProperties = null, int? maxSize = null) where TEntity : class
         {
-            ApplicationDbContext context = _context ?? new ApplicationDbContext();
 
-            var dbSet = context.Set<TEntity>();
+
+            var dbSet = _context.Set<TEntity>();
 
             IQueryable<TEntity> query = dbSet;
 
@@ -435,9 +397,6 @@ namespace ProjectTemplate.Persistance.Repositories
             }
 
             var result = query.ToList();
-
-            if (_context == null)
-                context.Dispose();
 
             return result;
         }
